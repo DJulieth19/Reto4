@@ -214,11 +214,11 @@ class Requerimiento_1Dao {
         // Su código
         ArrayList<Requerimiento_1> req1= new ArrayList<>();
         Requerimiento_1 registro = null;
-        String sql = "SELECT Nombre||' '||Primer_Apellido Lider,Cargo,COUNT(ID_Lider) '# Proyectos'"+ 
-        "FROM Lider l join Proyecto p"+
+        String sql = "SELECT Nombre||' '||Primer_Apellido Lider,Cargo,COUNT(ID_Lider) '# Proyectos' "+ 
+        "FROM Lider l join Proyecto p "+
         "USING (ID_Lider)"+
-        "where p.constructora = 'Arquitectura S.A.'"
-        +"group by p.ID_Lider" 
+        "where p.constructora = 'Arquitectura S.A.' "
+        +"group by p.ID_Lider " 
         +"ORDER BY Cargo , Lider;";
 
                     try (
@@ -244,11 +244,11 @@ class Requerimiento_2Dao {
         // Su código
         ArrayList<Requerimiento_2> req2= new ArrayList<>();
         Requerimiento_2 registro = null;
-        String sql = "SELECT ID_MaterialConstruccion,Nombre_Material ,Cantidad,Precio_Unidad , Cantidad * Precio_Unidad 'Precio_Total'"+ 
+        String sql = "SELECT ID_MaterialConstruccion,Nombre_Material ,Cantidad,Precio_Unidad , Cantidad * Precio_Unidad 'Precio_Total' "+ 
         "FROM MaterialConstruccion mc JOIN Compra c "+
         "USING (ID_MaterialConstruccion)"+
         "where p.constructora = 'Arquitectura S.A.'"
-        +"WHERE ID_Proyecto IN (10,14,23,24,38,50,29)" 
+        +"WHERE ID_Proyecto IN (10,14,23,24,38,50,29) " 
         +"ORDER BY ID_Proyecto, Precio_Unidad DESC;";
 
                     try (
@@ -278,13 +278,13 @@ class Requerimiento_3Dao {
         // Su código
         ArrayList<Requerimiento_3> req3= new ArrayList<>();
         Requerimiento_3 registro = null;
-        String sql = "SELECT sc.ID_Proyecto, Ciudad, Clasificacion,SUM(Precio_Total) Costo_Proyecto"+ 
+        String sql = "SELECT sc.ID_Proyecto, Ciudad, Clasificacion,SUM(Precio_Total) Costo_Proyecto "+ 
         "FROM (SELECT ID_Proyecto,ID_MaterialConstruccion,Cantidad * Precio_Unidad Precio_Total "+
-        "FROM MaterialConstruccion mc"+
+        "FROM MaterialConstruccion mc "+
         "JOIN Compra c "+
         "USING (ID_MaterialConstruccion))sc, Proyecto p "+
-        "WHERE sc.ID_Proyecto = p.ID_Proyecto AND Ciudad IN ('Monteria','Santa Marta')"
-        +"GROUP BY Ciudad, Clasificacion, sc.ID_Proyecto" 
+        "WHERE sc.ID_Proyecto = p.ID_Proyecto AND Ciudad IN ('Monteria','Santa Marta') "
+        +"GROUP BY Ciudad, Clasificacion, sc.ID_Proyecto " 
         +"HAVING SUM(Precio_Total) > 70000;";
 
                     try (
