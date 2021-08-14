@@ -216,7 +216,7 @@ class Requerimiento_1Dao {
         Requerimiento_1 registro = null;
         String sql = "SELECT Nombre||' '||Primer_Apellido Lider,Cargo,COUNT(ID_Lider) '# Proyectos' "+ 
         "FROM Lider l join Proyecto p "+
-        "USING (ID_Lider)"+
+        "USING (ID_Lider) "+
         "where p.constructora = 'Arquitectura S.A.' "
         +"group by p.ID_Lider " 
         +"ORDER BY Cargo , Lider;";
@@ -246,8 +246,8 @@ class Requerimiento_2Dao {
         Requerimiento_2 registro = null;
         String sql = "SELECT ID_MaterialConstruccion,Nombre_Material ,Cantidad,Precio_Unidad , Cantidad * Precio_Unidad 'Precio_Total' "+ 
         "FROM MaterialConstruccion mc JOIN Compra c "+
-        "USING (ID_MaterialConstruccion)"+
-        "where p.constructora = 'Arquitectura S.A.'"
+        "USING (ID_MaterialConstruccion) "+
+        "where p.constructora = 'Arquitectura S.A.' "
         +"WHERE ID_Proyecto IN (10,14,23,24,38,50,29) " 
         +"ORDER BY ID_Proyecto, Precio_Unidad DESC;";
 
