@@ -40,7 +40,7 @@ class VistaRequerimientos {
             // Su código
             ArrayList<Requerimiento_2> req2 = controlador.consultarRequerimiento2();
             for (Requerimiento_2 req_2 : req2){
-                System.out.printf("%s %s %d %d\n",req_2.getMaterialConstruccion(),req_2.getNombre_Material(),req_2.getCantidad(),req_2.getPrecio_Unidad(),req_2.getPrecio_Total());       
+                System.out.printf("%s %s %d %d %d\n",req_2.getMaterialConstruccion(),req_2.getNombre_Material(),req_2.getCantidad(),req_2.getPrecio_Unidad(),req_2.getPrecio_Total());       
             } 
         } catch (Exception e) {
             System.err.println(e);
@@ -50,9 +50,9 @@ class VistaRequerimientos {
     public static void requerimiento3(){
         try {
             // Su código
-            ArrayList<Requerimiento_2> req2 = controlador.consultarRequerimiento2();
-            for (Requerimiento_2 req_2 : req2){
-                System.out.printf("%s %s %d %d\n",req_2.getMaterialConstruccion(),req_2.getNombre_Material(),req_2.getCantidad(),req_2.getPrecio_Unidad(),req_2.getPrecio_Total());       
+            ArrayList<Requerimiento_3> req3 = controlador.consultarRequerimiento3();
+            for (Requerimiento_3 req_3 : req3){
+                System.out.printf("%d %s %d %d\n",req_3.getIdProyecto(),req_3.getCiudad(),req_3.getClasisificacion(),req_3.getCosto_Proyecto());       
             } 
         } catch (Exception e) {
             System.err.println(e);
