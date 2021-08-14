@@ -52,7 +52,7 @@ class VistaRequerimientos {
             // Su código
             ArrayList<Requerimiento_3> req3 = controlador.consultarRequerimiento3();
             for (Requerimiento_3 req_3 : req3){
-                System.out.printf("%d %s %d %d\n",req_3.getIdProyecto(),req_3.getCiudad(),req_3.getClasisificacion(),req_3.getCosto_Proyecto());       
+                System.out.printf("%d %s %s %d\n",req_3.getIdProyecto(),req_3.getCiudad(),req_3.getClasisificacion(),req_3.getCosto_Proyecto());       
             } 
         } catch (Exception e) {
             System.err.println(e);
@@ -173,18 +173,18 @@ class Requerimiento_2 {
 
 class Requerimiento_3 {
     // Su código
-    private String idProyecto;
+    private Integer idProyecto;
     private String ciudad;
     private String clasificacion;
     private Integer costo_Proyecto;
 
     public Requerimiento_3(){}
 
-    public String getIdProyecto(){
+    public Integer getIdProyecto(){
         return idProyecto;
     }
 
-    public void setIdProyecto(String dato){
+    public void setIdProyecto(Integer dato){
         idProyecto = dato;
     }
     public String getCiudad(){
@@ -293,7 +293,7 @@ class Requerimiento_3Dao {
                     ) {
                         while(rs.next()){
                             registro= new Requerimiento_3();
-                            registro.setIdProyecto(rs.getString("ID_Proyecto"));
+                            registro.setIdProyecto(rs.getInt("ID_Proyecto"));
                             registro.setCiudad(rs.getString("Ciudad"));
                             registro.setClasificacion(rs.getString("Clasificacion"));
                             registro.setCosto_Proyecto(rs.getInt("Costo_Proyecto"));
@@ -304,3 +304,4 @@ class Requerimiento_3Dao {
                     return req3;
     }
 }
+
