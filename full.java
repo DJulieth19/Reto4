@@ -231,7 +231,7 @@ class Requerimiento_1Dao {
                             registro= new Requerimiento_1();
                             registro.setLider(rs.getString("lider"));
                             registro.setCargo(rs.getString("Cargo"));
-                            registro.setProyectos(rs.getInt("Proyectos"));
+                            registro.setProyectos(rs.getInt("# Proyectos"));
                             req1.add(registro);
                         }
                     }
@@ -247,8 +247,7 @@ class Requerimiento_2Dao {
         String sql = "SELECT ID_MaterialConstruccion,Nombre_Material ,Cantidad,Precio_Unidad , Cantidad * Precio_Unidad 'Precio_Total' "+ 
         "FROM MaterialConstruccion mc JOIN Compra c "+
         "USING (ID_MaterialConstruccion) "+
-        "where p.constructora = 'Arquitectura S.A.' "
-        +"WHERE ID_Proyecto IN (10,14,23,24,38,50,29) " 
+        "WHERE ID_Proyecto IN (10,14,23,24,38,50,29) " 
         +"ORDER BY ID_Proyecto, Precio_Unidad DESC;";
 
                     try (
